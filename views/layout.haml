@@ -1,7 +1,8 @@
-!!!loose
+!!!strict
 %html{:xmlns => "http://www.w3.org/1999/xhtml"}
   %head
     %title Sinatra Skeleton App
     %link{:href => '/stylesheets/master.css', :rel => 'stylesheet', :type => 'text/css'}
   %body
     =yield
+    %script{:src => 'http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js', :type => 'text/javascript'}
