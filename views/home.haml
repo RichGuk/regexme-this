@@ -1,1 +1,49 @@
-Welcome home.
+.box
+  %form#regex-form{:action => '/test', :method => 'post'}
+    %p
+      %label.inline Test for language:
+      %select{:name => 'language', :id => 'language'}
+        %option{:value => 'ruby'} Ruby
+        %option{:value => 'python'} Python
+
+      &nbsp;
+      %label.inline Using method:
+      %select{:name => 'method', :id => 'method'}
+        %option{:value => 'match'} Match
+        %option{:value => 'match_all'} Match All (Find All)
+        %option{:value => 'replace'} Replace
+
+    #regex-options-normal
+      %label Your regular expression:
+      %span.slash /
+      %input.normal{:type => 'text', :name => 'regex', :id => 'regex'}
+      %span.slash /
+      %input.normal{:type => 'text', :name => 'regex_options', :id => 'regex-options'}
+    #regex-options-python.hidden
+      %input.checkbox{:type => 'checkbox', :id => 'regex-options-case', :name => 'regex_options_python[]', :value => 'ignorecase'}
+      %label{:for => 'regex-options-case'} IGNORECASE
+      %input{:type => 'checkbox', :id => 'regex-options-multiline', :name => 'regex_options_python[]', :value => 'multiline'}
+      %label{:for => 'regex-options-multiline'} MULTILINE
+      %input{:type => 'checkbox', :id => 'regex-options-dotall', :name => 'regex_options_python[]', :value => 'dotall'}
+      %label{:for => 'regex-options-dotall'} DOTALL
+      %input{:type => 'checkbox', :id => 'regex-options-unicode', :name => 'regex_options_python[]', :value => 'unicode'}
+      %label{:for => 'regex-options-unicode'} UNICODE
+      %input{:type => 'checkbox', :id => 'regex-options-verbose', :name => 'regex_options_python[]', :value => 'verbose'}
+      %label{:for => 'regex-options-verbose'} VERBOSE
+
+    %p#replace-input.hidden
+      %label Replace with:
+      %input.normal{:type => 'text', :name => 'replace_data', :id => 'replace-data'}
+
+    .extra-fields
+      .data
+        %label Data:
+        %textarea.normal{:name => 'data', :id => 'data', :cols => 55, :rows => 10}
+      .response
+        %label Response:
+        #response
+    .clr
+  %br/
+  %h1.title Quick reference
+  #quick-ref
+    = haml :"quick_ref/ruby", :layout => false

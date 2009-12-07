@@ -1,0 +1,25 @@
+= haml :"quick_ref/_common", :layout => false
+%hr
+#quick-ref-information
+  .matrix
+    %table
+      %tbody
+        %tr
+          %td.code <code>i</code>
+          %td Makes the regex match case insensitive.
+        %tr
+          %td.code <code>m</code>
+          %td Makes the dot match newlines.
+        %tr
+          %td.code <code>x</code>
+          %td Ignore whitespace
+        %tr
+          %td.code <code>o</code>
+          %td causes any \#{...} substitutions to be performed just once
+  .more
+    %h3 Ruby Regex Resources
+    %ul
+      %li <a href="http://ruby-doc.org/core/classes/Regexp.html">Regexp API docs</a>
+      %li <a href="http://www.regular-expressions.info/ruby.html">regular-expressions.info</a>
+      %li <a href="http://ruby.about.com/od/regularexpressions/a/regexhub.htm">ruby.about.com</a>
+  .clr

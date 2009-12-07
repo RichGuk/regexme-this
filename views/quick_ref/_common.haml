@@ -1,0 +1,99 @@
+%table.ref-table{:width => '33%'}
+  %tbody
+    %tr
+      %td.code <code>.</code>
+      %td.regex-info Any character except new line (\n)
+    %tr
+      %td.code <code>(a|b)</code>
+      %td.regex-info a or b
+    %tr
+      %td.code <code>(...)</code>
+      %td.regex-info Group
+    %tr
+      %td.code <code>(?:...)</code>
+      %td.regex-info Passive Group
+    %tr
+      %td.code <code>[abc]</code>
+      %td.regex-info Range (a or b or c)
+    %tr
+      %td.code <code>[^abc]</code>
+      %td.regex-info Not a or b or c
+    %tr
+      %td.code <code>[a-q]</code>
+      %td.regex-info Letter between a and q
+    %tr
+      %td.code <code>[A-Q]</code>
+      %td.regex-info Upper case letter between A and Q
+    %tr
+      %td.code <code>[0-7]</code>
+      %td.regex-info Digit between 0 and 7
+    %tr
+      %td.code <code>*</code>
+      %td.regex-info 0 or more
+      
+%table.ref-table{:width => '33%'}
+  %tbody
+    %tr
+      %td.code <code>*?</code>
+      %td.regex-info 0 or more, ungreedy
+    %tr
+      %td.code <code>+</code>
+      %td.regex-info 1 or more
+    %tr
+      %td.code <code>+?</code>
+      %td.regex-info 1 or more, ungreedy
+    %tr
+      %td.code <code>?</code>
+      %td.regex-info 0 or 1
+    %tr
+      %td.code <code>??</code>
+      %td.regex-info 0 or 1, ungreedy
+    %tr
+      %td.code <code>{3}</code>
+      %td.regex-info Exactly 3
+    %tr
+      %td.code <code>{3,}</code>
+      %td.regex-info 3 or more
+    %tr
+      %td.code <code>{3,5}</code>
+      %td.regex-info 3, 4 or 5
+    %tr
+      %td.code <code>{3,5}?</code>
+      %td.regex-info 3, 4 or 5, ungreedy
+    %tr
+      %td.code <code>^</code>
+      %td.regex-info Start of line
+
+%table.ref-table{:width => '33%'}
+  %tbody
+    %tr
+      %td.code <code>\A</code>
+      %td.regex-info Start of string
+    %tr
+      %td.code <code>$</code>
+      %td.regex-info End of line
+    %tr
+      %td.code <code>\Z</code>
+      %td.regex-info End of string
+    %tr
+      %td.code <code>\w</code>
+      %td.regex-info White space
+    %tr
+      %td.code <code>\W</code>
+      %td.regex-info Not white space
+    %tr
+      %td.code <code>\d</code>
+      %td.regex-info Digit
+    %tr
+      %td.code <code>\D</code>
+      %td.regex-info Not digit
+    %tr
+      %td.code <code>\w</code>
+      %td.regex-info Word
+    %tr
+      %td.code <code>\W</code>
+      %td.regex-info Not Word
+    %tr
+      %td.code <code>\n</code>
+      %td.regex-info New line
+.clr
