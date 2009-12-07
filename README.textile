@@ -1,0 +1,25 @@
+h1. Regexme-this
+
+Regexme-this is a web based regular expression testing service, there are plenty out there but not many of them allow you to test different languages in one location - so I made it so.
+
+h2. Using it online
+
+Regexme-this is available online "here":http://regexme-this.27smiles.com but you may also run it offline locally, see below.
+
+h3. Run locally
+
+You need to have Ruby and if you want to test Python, then python too. Python is called via the command line so it needs to be callable.
+
+First install the required dependencies.
+<pre><code>gem install sinatra haml json</code></pre>
+
+Then clone the repository.
+<pre><code>git clone git://github.com/RichGuk/regexme-this.git</code></pre>
+
+Finally you can get it running!
+<pre><code>ruby application.rb</code></pre>
+
+Then in your browser go to.
+<pre><code>http://localhost:4567</code></pre>
+
+Done!
