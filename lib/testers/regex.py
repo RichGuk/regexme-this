@@ -1,7 +1,10 @@
 #!/usr/bin/env python
 import sys
 import re
-import json
+try:
+    import json
+except ImportError:
+    import simplejson as json
 from optparse import OptionParser
 
 parser = OptionParser()
