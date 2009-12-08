@@ -30,26 +30,30 @@ $('#method').change(function() {
 })
 
 $('#language').change(function() {
-  $('#quick-ref').load('/quickref', 'language=' + $(this).val())
-
   var display = $('#regex-options-python').css('display')
+  var lang = $(this).val()
 
   if($(this).val() == 'python' && display != 'block') {
     $('#regex-options-normal .slash').hide()
     $('#regex-options').fadeOut(function() {
-      $('#regex').animate({'width': '968px'}, 500, function() {
-        $('#regex-options-python').slideDown('fast')
+      $('#regex').animate({'width': '968px'}, 'fast', function() {
+        $('#regex-options-python').fadeIn('fast', function() {
+          $('#quick-ref').load('/quickref', 'language=' + lang)
+          $('#data').keyup()
+        })
       })
     })
   } else if($(this).val() != 'python' && display == 'block') {
-    $('#regex-options-python').slideUp('fast', function() {
+    $('#regex-options-python').hide('fast', function() {
       $('#regex').animate({'width': '861px'}, 500, function() {
-        $('#regex-options-normal .slash, #regex-options').fadeIn()
+        $('#regex-options-normal .slash, #regex-options').fadeIn('fast',
+          function() {
+            $('#quick-ref').load('/quickref', 'language=' + lang)
+            $('#data').keyup()
+          })
       })
     })
   }
-
-  $('#data').keyup()
 })
 
 /*
