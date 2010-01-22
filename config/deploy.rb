@@ -13,6 +13,8 @@ set :key_relesaes, 3
 set :use_sudo, false
 # set :ssh_options, :forward_agent => true
 
+set :user, 'rich'
+
 role :app, "regexme-this.27smiles.com"
 role :web, "regexme-this.27smiles.com"
 role :db, "regexme-this.27smiles.com", :primary => true
