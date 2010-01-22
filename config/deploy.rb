@@ -1,7 +1,7 @@
 set :application, "regexme-this"
 set :repository, "git://github.com/RichGuk/regexme-this.git"
 
-set :deploy_to, "~/public_html/#{application}"
+set :deploy_to, "~/apps/#{application}"
 
 set :scm, :git
 set :git_shallow_clone, 1
