@@ -23,11 +23,18 @@ set :yui_compressor, "/usr/bin/env java -jar /home/rich/sandbox/yuicompressor.ja
 
 after "deploy:finalize_update", "minify:javascript"
 after "deploy:finalize_update", "minify:stylesheet"
+after "deploy:symlink", "deploy:symlinklog"
 
 namespace :deploy do
   desc "restart passenger app"
   task :restart do
     run "touch #{current_path}/tmp/restart.txt"
+  end
+
+  desc 'symlink log directory'
+  task :symlinklog do
+    run "rm -r #{current_path}/log"
+    run "ln -s #{shared_path}/log #{current_path}/log"
   end
 end
 
