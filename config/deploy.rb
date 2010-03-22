@@ -1,7 +1,7 @@
 set :application, "regexme-this"
 set :repository, "git://github.com/RichGuk/regexme-this.git"
 
-set :deploy_to, "~/public_html/#{application}"
+set :deploy_to, "~/apps/#{application}"
 
 set :scm, :git
 set :git_shallow_clone, 1
@@ -17,10 +17,9 @@ role :app, "regexme-this.27smiles.com"
 role :web, "regexme-this.27smiles.com"
 role :db, "regexme-this.27smiles.com", :primary => true
 
-set :yui_compressor, "/usr/bin/env java -jar /home/rich/sandbox/yuicompressor.jar"
+set :closure, "java -jar ~/sandbox/closure/compiler.jar"
 
 after "deploy:finalize_update", "minify:javascript"
-after "deploy:finalize_update", "minify:stylesheet"
 
 namespace :deploy do
   desc "restart passenger app"
@@ -33,14 +32,6 @@ namespace :minify do
   desc "Minifies javascript"
   task :javascript, :roles => :app do
     path = "#{latest_release}/public/javascripts"
-    run "#{yui_compressor} --type js #{path}/application.js -o #{path}/application.min.js"
-  end
-
-  desc "Minifies stylesheets"
-  task :stylesheet, :roles => :app do
-    path = "#{latest_release}/public/stylesheets"
-
-    run "#{yui_compressor} --type css #{path}/reset.css -o #{path}/reset.min.css"
-    run "#{yui_compressor} --type css #{path}/master.css -o #{path}/master.min.css"
+    run "#{closure} --js #{path}/application.js --js_output_file #{path}/application.min.js"
   end
 end

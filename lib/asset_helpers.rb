@@ -16,7 +16,7 @@ module Sinatra
       def css_include_tag(path)
         if production?
           timestamp = get_timestamp("#{path}.css")
-          path = "#{path}.min.css?#{timestamp}"
+          path = "#{path}.css?#{timestamp}"
         else
           path = "#{path}.css"
         end
