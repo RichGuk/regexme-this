@@ -13,6 +13,8 @@ set :key_relesaes, 3
 set :use_sudo, false
 # set :ssh_options, :forward_agent => true
 
+set :user, 'rich'
+
 role :app, "regexme-this.27smiles.com"
 role :web, "regexme-this.27smiles.com"
 role :db, "regexme-this.27smiles.com", :primary => true
@@ -20,11 +22,18 @@ role :db, "regexme-this.27smiles.com", :primary => true
 set :closure, "java -jar ~/sandbox/closure/compiler.jar"
 
 after "deploy:finalize_update", "minify:javascript"
+after "deploy:symlink", "deploy:symlinklog"
 
 namespace :deploy do
   desc "restart passenger app"
   task :restart do
     run "touch #{current_path}/tmp/restart.txt"
+  end
+
+  desc 'symlink log directory'
+  task :symlinklog do
+    run "rm -r #{current_path}/log"
+    run "ln -s #{shared_path}/log #{current_path}/log"
   end
 end
 
